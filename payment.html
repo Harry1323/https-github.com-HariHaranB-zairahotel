@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
+    <style>
+        /* payment */
+        .payment {
+            margin-top: 60px;
+            padding: 40px;
+            text-align: center;
+            background: #2c3e50;
+            color: white;
+            border-radius: 12px;
+        }
+
+        /* Payment button */
+        .pay-btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #2ecc71;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            /*transition: background 0.3s;*/
+        }
+
+        .pay-btn:hover {
+            background: #27ae60;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- payment -->
+    <div id="payment" class="payment">
+        <h3>Payment Options</h3>
+        <button class="btn" onclick="payWithCard()">Pay with Card</button>
+        <button class="btn" onclick="payWithUPI()">Pay with UPI</button>
+        <button class="btn" onclick="payWithCash()">Pay with Cash</button>
+        <span class="close-btn" onclick="closeModal('payment')">&times;</span>
+    </div>
+
+    <div id="upiQR" style="display:none; margin-top: 30px; text-align: center;">
+        <h3>Scan to Pay</h3>
+        <canvas id="qrCanvas"></canvas>
+        <p style="margin-top:10px; font-size:14px;">Use any UPI app to pay ₹<span id="qrAmount"></span></p>
+    </div>
+
+
+
+    <script>
+        // Smooth scroll to payment section
+        function scrollToPayment() {
+            const paymentSection = document.getElementById("payment");
+            paymentSection.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Called when clicking "Buy" in menu
+        function buyNow(itemName) {
+            alert(`Buying ${itemName}... Redirecting to payment 🔄`);
+            scrollToPayment();
+        }
+
+        // Called when clicking "Make Payment" from Cart
+        function makePayment() {
+            if (cart.length === 0) {
+                alert("Cart is empty!");
+            } else {
+                toggleCart(); // Close cart first
+                setTimeout(() => {
+                    scrollToPayment();
+                    const total = cart.reduce((sum, item) => sum + (item.qty * 150), 0); // Use dynamic if needed
+                    showUPIQRCode(total);
+                }, 300);
+            }
+        }
+
+
+
+        function showUPIQRCode(amount) {
+            const upiId = "hari@upi"; // Replace with your real UPI ID
+            const name = "ZAIRA Hotel";
+            const note = "Order Payment";
+            const qrString = `upi://pay?pa=${upiId}&pn=${name}&am=${amount}&cu=INR&tn=${note}`;
+
+            const canvas = document.getElementById("qrCanvas");
+            const qrAmount = document.getElementById("qrAmount");
+            document.getElementById("upiQR").style.display = "block";
+            qrAmount.innerText = amount;
+
+            // Use built-in QR library or external one like qrious or use Google Chart API
+            new QRious({
+                element: canvas,
+                value: qrString,
+                size: 200
+            });
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

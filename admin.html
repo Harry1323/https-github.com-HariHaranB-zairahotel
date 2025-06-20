@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ZAIRA Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: white;
+        }
+
+        header {
+            background: #e74c3c;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #2f2f2f;
+            border-radius: 12px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #ffcd3c;
+            color: black;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .menu-list {
+            margin-top: 30px;
+        }
+
+        .menu-card {
+            background: #3e3e3e;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 15px;
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .menu-card h4 {
+            margin: 10px 0 5px;
+        }
+
+        .menu-card p {
+            font-size: 14px;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>ZAIRA 🍗 | Admin Dashboard</header>
+
+    <div class="container">
+        <h2>Add New Menu Item</h2>
+        <input type="text" id="itemName" placeholder="Item Name">
+        <input type="number" id="itemPrice" placeholder="Price (₹)">
+        <input type="text" id="itemImage" placeholder="Image URL">
+        <textarea id="itemDesc" placeholder="Description (optional)"></textarea>
+        <button onclick="addMenuItem()">Add Item</button>
+
+        <div class="menu-list" id="menuList"></div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAjCRw2nHBIiEW-g2RVqxOUI0DquHRwXcU",
+            authDomain: "ziarahotel-f87d9.firebaseapp.com",
+            projectId: "ziarahotel-f87d9",
+            storageBucket: "ziarahotel-f87d9.firebasestorage.app",
+            messagingSenderId: "951525974265",
+            appId: "1:951525974265:web:46cd72de216c21a48f4228"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
+</body>
+
+</html>

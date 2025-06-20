@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZAIRA | Non-Veg Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">ZAIRA 🍗</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#" onclick="toggleCart()">Cart</a></li>
+                <li><a href="#" onclick="toggleProfile()">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="profile-dropdown" id="profileMenu">
+        <p><strong>Name:</strong> <span id="profileName">Guest</span></p>
+        <p><strong>Phone:</strong> <span id="profilePhone">--</span></p>
+        <button onclick="alert('Edit Feature Coming Soon')">Edit</button>
+        <button onclick="alert('Logged Out!')">Logout</button>
+    </div>
+
+    <section class="hero">
+        <h1>Welcome to ZAIRA Hotel</h1>
+        <p>Best Non-Veg in Town – Biryani, BBQ, and More!</p>
+        <div class="btn-group">
+            <button class="btn" onclick="openModal('loginModal')">Login</button>
+            <button class="btn" onclick="openModal('signupModal')">Signup</button>
+        </div>
+    </section>
+
+
+    <section class="discount">
+        <h2>Special Discount</h2>
+        <p>Get 20% off on your first order! Use code: <strong>ZAIRA20</strong></p>
+        <button class="btn" onclick="alert('Discount Applied!')">Apply Discount</button>
+
+    </section>
+
+    <!-- <section class="menu-section" id="menu">
+        <h2>Our Special Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Biryani">
+                <div class="info">
+                    <h4>Chicken Biryani</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="BBQ">
+                <div class="info">
+                    <h4>BBQ Wings</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Mutton">
+                <div class="info">
+                    <h4>Mutton Fry</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://i.ytimg.com/vi/7gRY0joeVb0/sddefault.jpg" alt="Tandoori">
+                <div class="info">
+                    <h4>Tandoori Chicken</h4>
+                    <div class="btn-row">
+                        <button onclick="addToCart('Chicken Biryani')">Add to Cart</button>
+                        <button onclick="buyNow('Chicken Biryani')">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="menu-section" id="menu">
+        <h2>Our Special Menu</h2>
+        <div class="menu-grid" id="menuContainer">
+            <!-- Dynamic items will appear here -->
+        </div>
+    </section>
+
+
+    <section>
+        <h2>NOW Offers </h2>
+    </section>
+
+    <!-- Cart Icon -->
+    <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <h3>Login</h3>
+            <input type="text" id="loginPhone" placeholder="Phone Number" />
+            <input type="password" id="loginPassword" placeholder="Password" />
+            <button id="loginBtn" class="btn">Login</button>
+        </div>
+        <span class="close-btn" onclick="closeModal('loginModal')">&times;</span>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <h3>Signup</h3>
+            <input type="text" id="name" placeholder="Name" />
+            <input type="text" id="phone" placeholder="Phone Number" />
+            <input type="password" id="password" placeholder="Password" />
+            <button id="btn1" class="btn">Signup</button>
+        </div>
+        <span class="close-btn" onclick="closeModal('signupModal')">&times;</span>
+    </div>
+
+    <!-- Cart Side Panel -->
+    <div class="cart-panel" id="cartPanel">
+        <span class="cart-close" onclick="toggleCart()">&times;</span>
+        <h3>Your Cart</h3>
+        <div id="cartItems"></div>
+        <hr>
+        <p><strong>Total:</strong> ₹<span id="cartTotal">0</span></p>
+        <button class="pay-btn" onclick="makePayment()">Make Payment</button>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="foot">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>ZAIRA 🍗</h3>
+                <p>Flavour meets tradition. Serving the best biryani & BBQ in town.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#" onclick="toggleCart()">Cart</a>
+                <a href="#" onclick="toggleProfile()">Profile</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ZAIRA Hotel | Crafted by C4C</p>
+        </div>
+    </footer>
+
+
+    <script src="main.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAjCRw2nHBIiEW-g2RVqxOUI0DquHRwXcU",
+            authDomain: "ziarahotel-f87d9.firebaseapp.com",
+            projectId: "ziarahotel-f87d9",
+            storageBucket: "ziarahotel-f87d9.firebasestorage.app",
+            messagingSenderId: "951525974265",
+            appId: "1:951525974265:web:46cd72de216c21a48f4228"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+    </script>
+</body>
+
+</html>
